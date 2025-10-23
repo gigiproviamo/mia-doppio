@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --color-primary: #1a5f3f; /* green-800 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-secondary: #2d7a57; /* green-700 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    --color-accent: #25D366; /* whatsapp-verde */
+    --color-accent-foreground: #FFFFFF; /* white */
+
+     /* >>> Footer Colors (NUOVO) */
+    --color-footer: #E5E7EB;              /* blu scuro footer */
+    --color-footer-foreground: #15202C;   /* gray-200 per testo/link */
+    --color-footer-border: #1F2937;       /* gray-800 per divisori sottili */
+    
+    /* Background & Surface */
+    --color-background: #FAFAFA; /* gray-50 */
+    --color-foreground: #0F172A; /* slate-900 */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #0F172A; /* slate-900 */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #0F172A; /* slate-900 */
+    
+    /* Text Hierarchy */
+    --color-muted: #F8FAFC; /* slate-50 */
+    --color-muted-foreground: #64748B; /* slate-500 */
+    
+    /* Interactive Elements */
+    --color-border: #E2E8F0; /* slate-200 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #1a5f3f; /* green-800 */
+    
+    /* Status Colors */
+    --color-success: #22C55E; /* green-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  .font-accent {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* WhatsApp Message Bubbles */
+  .whatsapp-message {
+    @apply rounded-2xl px-4 py-3 max-w-xs shadow-sm;
+  }
+  
+  .whatsapp-message-sent {
+    @apply bg-accent text-accent-foreground ml-auto;
+  }
+  
+  .whatsapp-message-received {
+    @apply bg-white text-foreground border border-border;
+  }
+
+  /* Brand Shadows */
+  .shadow-brand {
+    box-shadow: 0 1px 3px rgba(18, 140, 126, 0.08);
+  }
+  
+  .shadow-brand-lg {
+    box-shadow: 0 4px 12px rgba(18, 140, 126, 0.15);
+  }
+  
+  .shadow-brand-xl {
+    box-shadow: 0 8px 24px rgba(18, 140, 126, 0.25);
+  }
+
+  /* Conversion Elements */
+  .cta-pulse {
+    animation: pulse-brand 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes pulse-brand {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Smooth Transitions */
+  .transition-brand {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Industry Toggle Animation */
+  .industry-toggle {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Revenue Counter Animation */
+  .counter-reveal {
+    animation: counter-scale 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes counter-scale {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Hover Elevations */
+  .hover-lift {
+    @apply transition-brand;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    @apply shadow-brand-lg;
+  }
+
+  /* Mobile Touch Targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@layer utilities {
+  /* Typography Utilities */
+  .text-brand-primary {
+    color: var(--color-primary);
+  }
+  
+  .text-brand-secondary {
+    color: var(--color-secondary);
+  }
+  
+  .text-brand-accent {
+    color: var(--color-accent);
+  }
+
+  /* Background Utilities */
+  .bg-brand-primary {
+    background-color: var(--color-primary);
+  }
+  
+  .bg-brand-secondary {
+    background-color: var(--color-secondary);
+  }
+  
+  .bg-brand-accent {
+    background-color: var(--color-accent);
+  }
+
+  /* Border Utilities */
+  .border-brand-primary {
+    border-color: var(--color-primary);
+  }
+  
+  .border-brand-accent {
+    border-color: var(--color-accent);
+  }
+
+  /* Focus States */
+  .focus-brand {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+}
